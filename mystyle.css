@@ -1,0 +1,18 @@
+
+/* Рамка та вирівнювання першого заголовка */
+h1.m {
+    border: 1px solid black;
+    text-align: center;
+}
+
+/* Шрифт заголовка другого рівня й абзаців */
+h2, p {
+    font-family: 'Monotype Corsiva', cursive;
+}
+
+/* Позиціювання другого зображення */
+#pic {
+    position: absolute;
+    top: 120px;
+    left: 650px;
+}
