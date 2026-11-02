@@ -1,18 +1,30 @@
-/* Загальні налаштування для всього сайту */
+/* Абсолютно чорний фон для всього сайту на всіх сторінках */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ffffff;
-    /* Встановлення зображення з запиту як фону */
-    background: url('bg.png') no-repeat center center fixed;
-    background-size: cover;
+    background-color: #000000; 
     min-height: 100vh;
+}
+
+/* Верхня секція (Шапка) для фірмового логотипу */
+.main-header {
+    background-color: #000000;
+    padding: 30px 10px 15px 10px;
+    text-align: center;
+}
+
+.brand-logo {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.3)); /* Легке червоне світіння букв */
 }
 
 /* Навігаційна панель */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: #0b0b0b;
     padding: 15px 0;
     text-align: center;
     border-bottom: 2px solid #660000;
@@ -32,15 +44,36 @@ body {
     border-bottom: 2px solid #ff3333;
 }
 
-/* Контейнер для текстового контенту */
+/* Головний панорамний банер з фото гурту */
+.band-banner {
+    width: 100%;
+    height: 400px;
+    background: url('https://alphacoders.com') no-repeat center center;
+    background-size: cover;
+    border-bottom: 1px solid #222;
+    position: relative;
+}
+
+/* Градієнтне затемнення банера знизу для плавного переходу в чорний */
+.band-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #000000, transparent);
+}
+
+/* Блоки з контентом */
 .content-box {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: rgba(0, 0, 0, 0.75);
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #0b0b0b;
     padding: 30px;
     border-radius: 8px;
-    border: 1px solid #333;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.9);
     text-align: center;
 }
 
@@ -52,66 +85,181 @@ h1, h2, h3 {
 
 p {
     line-height: 1.6;
-    font-size: 17px;
+    font-size: 16px;
+    color: #dddddd;
 }
 
-/* Аудіоплеєр */
+.intro-text {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.section-desc {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* Додаткові текстові блоки */
+.additional-text {
+    text-align: left;
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 30px 0;
+    border-left: 4px solid #ff3333;
+}
+
+/* Адаптивний контейнер для відео з YouTube */
 .audio-section {
     margin-top: 30px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #141414;
     border-radius: 5px;
 }
 
-audio {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 400px;
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
 }
 
-/* Стилі для сторінки учасників (Сітка карт) */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Картки учасників гурту */
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .member-card {
-    background-color: rgba(20, 20, 20, 0.8);
+    background-color: #121212;
     padding: 15px;
     border-radius: 5px;
-    border: 1px solid #444;
+    border: 1px solid #222;
+    text-align: left;
 }
 
 .member-card img {
     width: 100%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
     border-radius: 4px;
-    background-color: #222; /* Тимчасовий замінник, якщо картинки немає */
+    border-bottom: 2px solid #ff3333;
 }
 
-/* Стилі для сторінки дискографії */
+.member-card h3 {
+    margin: 15px 0 5px 0;
+    font-size: 18px;
+}
+
+.member-card .role {
+    color: #ff3333;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+
+.member-card .bio-short {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #bbb;
+}
+
+/* Список дискографії */
 .disco-list {
     list-style: none;
     padding: 0;
     text-align: left;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .disco-list li {
-    padding: 12px;
-    border-bottom: 1px solid #333;
+    padding: 15px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.disco-list li strong {
     font-size: 18px;
+    color: #ff3333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.disco-list .album-desc {
+    display: block;
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.4;
 }
 
 .disco-list li:hover {
-    color: #ff3333;
-    background-color: rgba(255,255,255,0.05);
+    background-color: #121212;
 }
-/* Новий фон спеціально для третьої сторінки */
-body.discography-page {
-    background: url('bg-disco.jpg') no-repeat center center fixed;
-    background-size: cover;
+
+/* Секція підвалу (Футер) */
+.site-footer {
+    background-color: #0b0b0b;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 2px solid #660000;
+    margin-top: 50px;
+}
+
+.site-footer p {
+    margin: 0 0 15px 0;
+    font-size: 15px;
+    color: #aaaaaa;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 18px;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    transition: all 0.3s ease;
+    border: 1px solid #222;
+}
+
+.social-icon.insta:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: #dc2743;
+}
+
+.social-icon.spotify:hover {
+    background-color: #1DB954;
+    border-color: #1DB954;
+    color: #000000;
+}
+
+.social-icon.youtube:hover {
+    background-color: #FF0000;
+    border-color: #FF0000;
+}
+
+.site-footer .copyright {
+    font-size: 13px;
+    color: #444444;
+    margin: 0;
 }
