@@ -39,7 +39,7 @@
             transition: color 0.3s;
         }
 
-        nav a:hover, nav a.active-link {
+        nav a:hover {
             color: #ffffff;
         }
 
@@ -71,21 +71,18 @@
            2. МЕХАНІЗМ ДИНАМІЧНИХ СТОРІНОК (:target)
            ======================================================== */
         .page-content {
-            display: none; /* Ховаємо всі сторінки за замовчуванням */
+            display: none;
         }
 
-        /* Відображення конкретної сторінки залежно від URL-якоря */
         #home:target, #lineup:target, #discography:target {
             display: block;
         }
 
-        /* Якщо якір відсутній в URL, показуємо головну сторінку за замовчуванням */
         body:not(:has(:target)) #home {
             display: block;
         }
 
-        /* Стиль контент-боксів */
-        .main-box, .red-box, .steel-box {
+        .main-box, .steel-box {
             background-color: #050505;
             border: 1px solid #151515;
             padding: 30px;
@@ -97,44 +94,87 @@
         }
 
         /* ========================================================
-           3. СТИЛЬ ДЛЯ СТОРІНКИ "СКЛАД ГРУПИ" (Червоний рок)
+           3. СТИЛЬ ДЛЯ СТОРІНКИ "СКЛАД ГРУПИ" (ІНТЕРНЕТ-ФОН ТА КАРТКИ)
            ======================================================== */
+        #lineup {
+            /* Завантажуємо атмосферний темний рок-фон безпосередньо з мережі */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: calc(100vh - 61px);
+            padding-bottom: 40px;
+        }
+
+        .red-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .red-box h2 {
             color: #ff3333;
             text-transform: uppercase;
             border-left: 4px solid #ff3333;
             padding-left: 10px;
-            margin-top: 0;
-            font-size: 1.2em;
+            margin: 30px 0;
+            font-size: 1.4em;
+            letter-spacing: 2px;
         }
 
-        .red-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        /* Сітка для карток музикантів */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
-        .red-list li {
+        /* Сучасна картка учасника гурту */
+        .member-card {
+            background-color: rgba(15, 15, 15, 0.95);
+            border: 1px solid #331111;
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff3333;
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #2a1414;
+        }
+
+        .member-info {
             padding: 15px;
-            border-bottom: 1px solid #3a1414;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .red-list li span:first-child {
+        .member-name {
             color: #ffffff;
             font-weight: bold;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .red-role {
             color: #ff6666;
             text-transform: uppercase;
-            font-size: 0.85em;
+            font-size: 0.75em;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         /* ========================================================
-           4. СТИЛЬ ДЛЯ СТОРІНКИ "ДИСКОГРАФІЯ" (Сталевий індустріальний)
+           4. СТИЛЬ ДЛЯ СТОРІНКИ "ДИСКОГРАФІЯ"
            ======================================================== */
         .steel-box h2 {
             color: #ffffff;
@@ -169,7 +209,6 @@
             font-weight: bold;
         }
 
-        /* Блок альбому Venom та аудіоплеєр */
         .venom-section {
             margin-top: 40px;
             border-top: 2px solid #2d3239;
@@ -222,7 +261,7 @@
 </head>
 <body>
 
-    <!-- НАВІГАЦІЙНЕ МЕНЮ (СПІЛЬНЕ ДЛЯ ВСІХ СТОРІНОК) -->
+    <!-- НАВІГАЦІЙНЕ МЕНЮ -->
     <nav>
         <a href="#home">Головна</a>
         <a href="#lineup">Склад групи</a>
@@ -233,66 +272,50 @@
     <div id="home" class="page-content">
         <div class="subtitle-top">Social Apocalypse</div>
         <div class="logo-container">
-            <img src="https://www.metal-tracker.com/torrents/images/3036110.jpg" alt="Bullet for My Valentine">
+            <img src="https://metal-tracker.com" alt="Bullet for My Valentine">
         </div>
         <div class="main-box">
-            <p>Bullet for My Valentine (BFMV) — британський металкор-гурт, що підкорив світову сцену своїми вибуховими релізами «The Poison» та «Scream Aim Fire». Поєднання важких агресивних рифів, мелодійних соло та емоційного вокалу робить їхні треки справжніми гімнами покоління.</p>
+            <p>Bullet for My Valentine (BFMV) — британський metalcore-гурт, що підкорив світову сцену своїми вибуховими релізами «The Poison» та «Scream Aim Fire». Поєднання важких агресивних рифів, мелодійних соло та емоційного вокалу робить їхні треки справжніми гімнами покоління.</p>
         </div>
     </div>
 
-    <!-- СТОРІНКА 2: СКЛАД ГРУПИ -->
+    <!-- СТОРІНКА 2: СКЛАД ГРУПИ (З ОНОВЛЕНИМИ ІНТЕРНЕТ-ФОТОГРАФІЯМИ) -->
     <div id="lineup" class="page-content">
-        <div class="subtitle-top">The Warriors</div>
         <div class="red-box">
             <h2>Поточний склад BFMV</h2>
-            <ul class="red-list">
-                <li><span>Меттью Так (Matthew Tuck)</span> <span class="red-role">Вокал, rhythm-гітара</span></li>
-                <li><span>Майкл Педжет (Michael Paget)</span> <span class="red-role">Соло-гітара, бек-вокал</span></li>
-                <li><span>Джеймі Матіас (Jamie Mathias)</span> <span class="red-role">Бас-гітара, вокал</span></li>
-                <li><span>Джейсон Боулд (Jason Bowld)</span> <span class="red-role">Ударні, перкусія</span></li>
-            </ul>
-        </div>
-    </div>
+            
+            <div class="team-grid">
+                <!-- Меттью Так -->
+                <div class="member-card">
+                    <img src="https://metalinjection.net" alt="Matthew Tuck" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Меттью Так</span>
+                        <span class="red-role">Вокал, rhythm-гітара</span>
+                    </div>
+                </div>
 
-    <!-- СТОРІНКА 3: ДИСКОГРАФІЯ ТА АЛЬБОМ VENOM -->
-    <div id="discography" class="page-content">
-        <div class="subtitle-top">Studio Chronicles</div>
-        <div class="steel-box">
-            <h2>Студійні альбоми</h2>
-            <ul class="steel-list">
-                <li><span>The Poison</span> <span class="steel-year">2005</span></li>
-                <li><span>Scream Aim Fire</span> <span class="steel-year">2008</span></li>
-                <li><span>Fever</span> <span class="steel-year">2010</span></li>
-                <li><span>Temper Temper</span> <span class="steel-year">2013</span></li>
-                <li><span>Venom</span> <span class="steel-year">2015</span></li>
-                <li><span>Gravity</span> <span class="steel-year">2018</span></li>
-                <li><span>Bullet for My Valentine</span> <span class="steel-year">2021</span></li>
-            </ul>
+                <!-- Майкл Педжет -->
+                <div class="member-card">
+                    <img src="https://guitarworld.com" alt="Michael Paget" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Майкл Педжет</span>
+                        <span class="red-role">Соло-гітара, бек-вокал</span>
+                    </div>
+                </div>
 
-            <!-- ДЕТАЛЬНИЙ ПЕРЕЛІК ТРЕКІВ АЛЬБОМУ VENOM -->
-            <div class="venom-section">
-                <div class="venom-title">Альбом: Venom (2015) — Повний трек-лист</div>
-                <ul class="tracklist">
-                    <li>
-                        <div class="track-info">
-                            <span><span class="track-number">01.</span> V</span>
-                            <span style="color: #ff3333; font-size: 0.8em;">Intro</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="track-info">
-                            <span><span class="track-number">02.</span> No Way Out</span>
-                            <span class="steel-year">3:53</span>
-                        </div>
-                        <!-- Плеєр для прослуховування (використано демонстраційні аудіофайли) -->
-                        <audio controls src="https://soundhelix.com"></audio>
-                    </li>
-                    <li>
-                        <div class="track-info">
-                            <span><span class="track-number">03.</span> Army of Noise</span>
-                            <span class="steel-year">4:18</span>
-                        </div>
-                        <audio controls src="https://soundhelix.com"></audio>
-                    </li>
-                    <li>
-                        <div class="track-info">
+                <!-- Джеймі Матіас -->
+                <div class="member-card">
+                    <img src="https://loudwire.com" alt="Jamie Mathias" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Джеймі Матіас</span>
+                        <span class="red-role">Бас-гітара, вокал</span>
+                    </div>
+                </div>
+
+                <!-- Джейсон Боулд -->
+                <div class="member-card">
+                    <img src="https://nme.com" alt="Jason Bowld" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Джейсон Боулд</span>
+                        <span class="red-role">Ударні, перкусія</span>
+                    </div>
