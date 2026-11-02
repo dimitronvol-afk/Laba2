@@ -98,7 +98,8 @@
            3. НОВИЙ СТИЛЬ ДЛЯ СТОРІНКИ "СКЛАД ГРУПИ" (З фоном і фото)
            ======================================================== */
         #lineup {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('bg.png');
+            /* Використовуємо крапку перед косою рисою для точного локального пошуку файлу на GitHub */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('./bg.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -150,6 +151,7 @@
             height: 240px;
             object-fit: cover;
             border-bottom: 2px solid #2a1414;
+            background-color: #111; /* Тимчасовий темний фон, якщо картинка довго вантажиться */
         }
 
         .member-info {
@@ -274,11 +276,11 @@
             <img src="https://metal-tracker.com" alt="Bullet for My Valentine">
         </div>
         <div class="main-box">
-            <p>Bullet for My Valentine (BFMV) — британський металкор-гурт, що підкорив світову сцену своїми вибуховими релізами «The Poison» та «Scream Aim Fire». Поєднання важких агресивних рифів, мелодійних соло та емоційного вокалу робить їхні треки справжніми гімнами покоління.</p>
+            <p>Bullet for My Valentine (BFMV) — британський metalcore-гурт, що підкорив світову сцену своїми вибуховими релізами «The Poison» та «Scream Aim Fire». Поєднання важких агресивних рифів, мелодійних соло та емоційного вокалу робить їхні треки справжніми гімнами покоління.</p>
         </div>
     </div>
 
-    <!-- СТОРІНКА 2: СКЛАД ГРУПИ (З ОНОВЛЕНИМ ФОНОМ ТА КАРТКАМИ) -->
+    <!-- СТОРІНКА 2: СКЛАД ГРУПИ -->
     <div id="lineup" class="page-content">
         <div class="red-box">
             <h2>Поточний склад BFMV</h2>
@@ -286,7 +288,7 @@
             <div class="team-grid">
                 <!-- Меттью Так -->
                 <div class="member-card">
-                    <img src="matthew.jpg" alt="Matthew Tuck" class="member-photo">
+                    <img src="./matthew.jpg" alt="Matthew Tuck" class="member-photo">
                     <div class="member-info">
                         <span class="member-name">Меттью Так</span>
                         <span class="red-role">Вокал, rhythm-гітара</span>
@@ -295,7 +297,7 @@
 
                 <!-- Майкл Педжет -->
                 <div class="member-card">
-                    <img src="michael.jpg" alt="Michael Paget" class="member-photo">
+                    <img src="./michael.jpg" alt="Michael Paget" class="member-photo">
                     <div class="member-info">
                         <span class="member-name">Майкл Педжет</span>
                         <span class="red-role">Соло-гітара, бек-вокал</span>
@@ -304,7 +306,7 @@
 
                 <!-- Джеймі Матіас -->
                 <div class="member-card">
-                    <img src="jamie.jpg" alt="Jamie Mathias" class="member-photo">
+                    <img src="./jamie.jpg" alt="Jamie Mathias" class="member-photo">
                     <div class="member-info">
                         <span class="member-name">Джеймі Матіас</span>
                         <span class="red-role">Бас-гітара, вокал</span>
@@ -313,7 +315,7 @@
 
                 <!-- Джейсон Боулд -->
                 <div class="member-card">
-                    <img src="jason.jpg" alt="Jason Bowld" class="member-photo">
+                    <img src="./jason.jpg" alt="Jason Bowld" class="member-photo">
                     <div class="member-info">
                         <span class="member-name">Джейсон Боулд</span>
                         <span class="red-role">Ударні, перкусія</span>
@@ -328,6 +330,3 @@
     <div id="discography" class="page-content">
         <div class="subtitle-top">Studio Chronicles</div>
         <div class="steel-box">
-            <h2>Студійні альбоми</h2>
-            <ul class="steel-list">
-                <li><span>The Poison</span> <span class="steel-year">2005</span></li>
