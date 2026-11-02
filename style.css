@@ -1,0 +1,117 @@
+/* Загальні налаштування для всього сайту */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    /* Встановлення зображення з запиту як фону */
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* Навігаційна панель */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 2px solid #660000;
+}
+
+.navbar a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 20px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #ff3333;
+    border-bottom: 2px solid #ff3333;
+}
+
+/* Контейнер для текстового контенту */
+.content-box {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #ff3333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+/* Аудіоплеєр */
+.audio-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+audio {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Стилі для сторінки учасників (Сітка карт) */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.member-card {
+    background-color: rgba(20, 20, 20, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    background-color: #222; /* Тимчасовий замінник, якщо картинки немає */
+}
+
+/* Стилі для сторінки дискографії */
+.disco-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.disco-list li {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    font-size: 18px;
+}
+
+.disco-list li:hover {
+    color: #ff3333;
+    background-color: rgba(255,255,255,0.05);
+}
+/* Новий фон спеціально для третьої сторінки */
+body.discography-page {
+    background: url('bg-disco.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
