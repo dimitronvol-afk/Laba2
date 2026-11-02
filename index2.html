@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Bullet for My Valentine — Official Fan Portal</title>
+    
+    <style>
+        /* ========================================================
+           1. ГОЛОВНИЙ СТИЛЬ САЙТУ ТА НАВІГАЦІЇ
+           ======================================================== */
+        body {
+            background-color: #000000; 
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            letter-spacing: 1px;
+        }
+
+        /* Навігаційне меню */
+        nav {
+            background-color: #050505;
+            padding: 20px;
+            border-bottom: 1px solid #1a1a1a;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #666666;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            margin: 0 25px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .subtitle-top {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #444444;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Контейнер для зображення гурту */
+        .logo-container {
+            text-align: center;
+            margin: 40px auto 20px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            filter: drop-shadow(0px 0px 10px rgba(139, 0, 0, 0.3));
+        }
+
+        /* ========================================================
+           2. МЕХАНІЗМ ДИНАМІЧНИХ СТОРІНОК (:target)
+           ======================================================== */
+        .page-content {
+            display: none; /* Ховаємо всі сторінки за замовчуванням */
+        }
+
+        #home:target, #lineup:target, #discography:target {
+            display: block;
+        }
+
+        body:not(:has(:target)) #home {
+            display: block;
+        }
+
+        /* Стиль контент-боксів */
+        .main-box, .steel-box {
+            background-color: #050505;
+            border: 1px solid #151515;
+            padding: 30px;
+            max-width: 740px;
+            margin: 30px auto;
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #bbbbbb;
+        }
+
+        /* ========================================================
+           3. НОВИЙ СТИЛЬ ДЛЯ СТОРІНКИ "СКЛАД ГРУПИ" (З фоном і фото)
+           ======================================================== */
+        #lineup {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: calc(100vh - 61px);
+            padding-bottom: 40px;
+        }
+
+        .red-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .red-box h2 {
+            color: #ff3333;
+            text-transform: uppercase;
+            border-left: 4px solid #ff3333;
+            padding-left: 10px;
+            margin: 30px 0;
+            font-size: 1.4em;
+            letter-spacing: 2px;
+        }
+
+        /* Сітка для карток музикантів */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        /* Картка учасника */
+        .member-card {
+            background-color: rgba(10, 10, 10, 0.9);
+            border: 1px solid #2a1414;
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff3333;
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 2px solid #2a1414;
+        }
+
+        .member-info {
+            padding: 15px;
+        }
+
+        .member-name {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.05em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .red-role {
+            color: #ff6666;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================================
+           4. СТИЛЬ ДЛЯ СТОРІНКИ "ДИСКОГРАФІЯ"
+           ======================================================== */
+        .steel-box h2 {
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: center;
+            background-color: #2d3239;
+            padding: 7px;
+            margin-top: 0;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+        }
+
+        .steel-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+
+        .steel-list li {
+            padding: 12px;
+            border-bottom: 1px dashed #3a3f47;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .steel-list li span:first-child {
+            color: #b0b5bc;
+        }
+
+        .steel-year {
+            color: #8a939f;
+            font-weight: bold;
+        }
+
+        .venom-section {
+            margin-top: 40px;
+            border-top: 2px solid #2d3239;
+            padding-top: 20px;
+        }
+
+        .venom-title {
+            color: #ff3333;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .tracklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tracklist li {
+            padding: 10px 15px;
+            background-color: #0a0b0d;
+            margin-bottom: 8px;
+            border-left: 3px solid #8a939f;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .track-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .track-number {
+            color: #8a939f;
+            margin-right: 10px;
+        }
+
+        audio {
+            width: 100%;
+            height: 30px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- НАВІГАЦІЙНЕ МЕНЮ -->
+    <nav>
+        <a href="#home">Головна</a>
+        <a href="#lineup">Склад групи</a>
+        <a href="#discography">Дискографія & Venom</a>
+    </nav>
+
+    <!-- СТОРІНКА 1: ГОЛОВНА -->
+    <div id="home" class="page-content">
+        <div class="subtitle-top">Social Apocalypse</div>
+        <div class="logo-container">
+            <img src="https://metal-tracker.com" alt="Bullet for My Valentine">
+        </div>
+        <div class="main-box">
+            <p>Bullet for My Valentine (BFMV) — британський металкор-гурт, що підкорив світову сцену своїми вибуховими релізами «The Poison» та «Scream Aim Fire». Поєднання важких агресивних рифів, мелодійних соло та емоційного вокалу робить їхні треки справжніми гімнами покоління.</p>
+        </div>
+    </div>
+
+    <!-- СТОРІНКА 2: СКЛАД ГРУПИ (З ОНОВЛЕНИМ ФОНОМ ТА КАРТКАМИ) -->
+    <div id="lineup" class="page-content">
+        <div class="red-box">
+            <h2>Поточний склад BFMV</h2>
+            
+            <div class="team-grid">
+                <!-- Меттью Так -->
+                <div class="member-card">
+                    <img src="matthew.jpg" alt="Matthew Tuck" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Меттью Так</span>
+                        <span class="red-role">Вокал, rhythm-гітара</span>
+                    </div>
+                </div>
+
+                <!-- Майкл Педжет -->
+                <div class="member-card">
+                    <img src="michael.jpg" alt="Michael Paget" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Майкл Педжет</span>
+                        <span class="red-role">Соло-гітара, бек-вокал</span>
+                    </div>
+                </div>
+
+                <!-- Джеймі Матіас -->
+                <div class="member-card">
+                    <img src="jamie.jpg" alt="Jamie Mathias" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Джеймі Матіас</span>
+                        <span class="red-role">Бас-гітара, вокал</span>
+                    </div>
+                </div>
+
+                <!-- Джейсон Боулд -->
+                <div class="member-card">
+                    <img src="jason.jpg" alt="Jason Bowld" class="member-photo">
+                    <div class="member-info">
+                        <span class="member-name">Джейсон Боулд</span>
+                        <span class="red-role">Ударні, перкусія</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- СТОРІНКА 3: ДИСКОГРАФІЯ ТА АЛЬБОМ VENOM -->
+    <div id="discography" class="page-content">
+        <div class="subtitle-top">Studio Chronicles</div>
+        <div class="steel-box">
+            <h2>Студійні альбоми</h2>
+            <ul class="steel-list">
+                <li><span>The Poison</span> <span class="steel-year">2005</span></li>
